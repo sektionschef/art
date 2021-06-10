@@ -2,46 +2,9 @@
 
 - [Hello world, hello futuregarden](text/hello_world_hello_futuregarden.md)
 - [Data Painting](text/data_painting.md)
-- [Projection Painting Prototype](projection_painting_prototype.md)
-
-# Like Converter | Apr 29, 2014
-
-The Like Converter transforms likes earned for a Facebook posting into delicious candy. It is a reward system for social media managers and a source of motivation for your desk.
-
-Video: [![Like Converter](http://img.youtube.com/vi/qcssBxjWfE8/0.jpg)](http://www.youtube.com/watch?v=qcssBxjWfE8 "Like Converter")
-
-The thing itself is built (like the [Twetterhaeuschen](http://digit.alitility.com/tutori-alitility/twetterhauschen/ "Twetterhäuschen")) on a [raspberry pi](http://www.raspberrypi.org/ "raspberry pi"), an [arduino](http://www.arduino.cc/) uno using [node.js](http://nodejs.org/) and [firmata](http://arduino.cc/en/reference/firmata). The source code is on github: <https://github.com/sektionschef/like_converter>
-
-![](uploads/2014/04/P1060877-150x150.jpg)
-
-![The Like Converter sign](uploads/2014/04/P1060880-150x150.jpg)
-
-![](uploads/2014/04/P1060883-150x150.jpg)
-
-![](uploads/2014/04/P1060893-150x150.jpg)
-
-# Die Dübitale Revolution | 2014/03/30
-
-![duebitalanzeige](uploads/2014/03/P1060868.jpg)
-
-Bayrische Großvisionäre haben das Tor zu einer neuen Dimension aufgestoßen. Die "Dübitalanzeige" besteht aus einem Holzbrett, in das durch präzise Bohrungen einzelne Dübel von Hand variabel angeordnet werden können. Je nach Dübelsetzung kann so, eine gewisse geistige Flexibilität vorausgesetzt, eine kurze Botschaft encodiert werden, ohne ein einziges Watt zu verbrauchen.
-
-![Rückseite der Dübitalanzeige](uploads/2014/03/P1060863-150x150.jpg)
-
-![das Düxel](uploads/2014/03/P1060871-150x150.jpg)
-
-![Close Up](uploads/2014/03/P1060868-150x150.jpg)
-
-!["Donkschen" geschrieben auf der Dübitalanzeige](uploads/2014/03/P1060866-150x150.jpg)
-
-Die "Dübitalanzeige" ist der erste große Schritt Richtung dübitaler Ära. Ob das Pixel tatsächlich dem Düxel Platz machen werden muss, wird sich erst in den nächsten Jahren herauskristallisieren.
-
-Die Eckdaten:
-
-- Auflösung: 5x30 Düxel
-- Stromverbrauch: 0 kW
-- Bildschirmdiagonale: 30''
-- Dübcheck & Roe'sche Constraint: 100 Dübel
+- [Projection Painting Prototype](text/projection_painting_prototype.md)
+- [Like Converter](text/like_converter.md)
+- [Die Dübitale Revolution](text/dübitale_revolution.md)
 
 # Twetterhäuschen | Nov 20, 2013
 
