@@ -498,13 +498,13 @@ if [ $INPUT_SCENE = "all" ]
    echo "rank = `RANK_ALL`"
    echo "framerate = `FRAMERATE_ALL`"
    echo "length = `LENGTH_ALL`"
-# warning about too many arguments, because finding lots of files?? but it works
+   # warning about too many arguments, because finding lots of files?? but it works
    blod ()
    {
    find ./02_scenes/$ALL_SCENES -name `RANK_ALL`_${ALL_SCENES}*
    }
    if [ -z `blod` ]
-# if the rank is not the same with the one in the cutlist it has to be updated
+   # if the rank is not the same with the one in the cutlist it has to be updated
      then
      echo +++++++++++++ "Rename $ALL_SCENES by updating its name and rank" ++++++++++++
      for FILE in 02_scenes/$ALL_SCENES/*frame*.jpg ;
@@ -516,23 +516,23 @@ if [ $INPUT_SCENE = "all" ]
         mv "$FILE" `NEWFILE` ;
         done
 
-#paths need to be preserved! wildcards with .* - no idea why!
-#frame_* instead of more general *.jpgs because there are also the original photos in the directory
+  #paths need to be preserved! wildcards with .* - no idea why!
+  #frame_* instead of more general *.jpgs because there are also the original photos in the directory
    fi
 
    echo +++++++++++++ "Render scene $ALL_SCENES" ++++++++++++
    ffmpeg -y -loop_input -f image2 -r `FRAMERATE_ALL` -i "02_scenes/$ALL_SCENES/`RANK_ALL`_${ALL_SCENES}_frame_%04d.jpg" -b $BITRATE -r $FRAMERATE_END -vframes `LENGTH_ALL` "03_output/`RANK_ALL`_${ALL_SCENES}_output.avi"
    done
-#{} are necessary to preserve the following underscore
-# -r framerate needs to be set before the input parameter
-# the framerate of the output is necessary to keep the framerate differences of the scenes
+   # {} are necessary to preserve the following underscore
+   # -r framerate needs to be set before the input parameter
+   # the framerate of the output is necessary to keep the framerate differences of the scenes
 
    else
-# if scene not in cutlist; ask for parameters, copy frames and write to cutlist
+     # if scene not in cutlist; ask for parameters, copy frames and write to cutlist
    if [ -z "`grep ";${INPUT_SCENE};" cutlist.csv`" ]
-################################################## BLOCK 02 #############################################################
-# semicolon prevents the matching of incomplete (parts of) scene names for instance "bdeckunge" instead of "abdeckungen"
-# for condition (-z (string is null) -n (string is not null))
+   ################################################## BLOCK 02 #############################################################
+   # semicolon prevents the matching of incomplete (parts of) scene names for instance "bdeckunge" instead of "abdeckungen"
+   # for condition (-z (string is null) -n (string is not null))
       then
       echo +++++++++++++ "${INPUT_SCENE} is not existing ... creation initialized" ++++++++++++
 
@@ -549,20 +549,20 @@ if [ $INPUT_SCENE = "all" ]
 
       echo +++++++++ "Create directory for scene" ++++++++++
       mkdir -p 02_scenes/$INPUT_SCENE
-# if directory is already existing, no error is given due to the -p
+      # if directory is already existing, no error is given due to the -p
 
       echo +++++++++ "Copy frames to newly created directory" ++++++++++
-# should be 4:3
+      # should be 4:3
       mv ~/*.jpg 02_scenes/$INPUT_SCENE
 
       echo +++++++++ "Resize frames" ++++++++++
       mogrify -resize $HEIGHT 02_scenes/$INPUT_SCENE/frame_*.jpg
-# only frames, to prevent original photos;
-# imagemagick is used for this
+      # only frames, to prevent original photos;
+      # imagemagick is used for this
 
       echo +++++++++++++ "Rename by adding the scene's name and rank" ++++++++++++
-# if the name is not congruent with the entries of the cutlist; rank is necessary for the order of the cat command later on
-# only frames, to prevent original photos
+      # if the name is not congruent with the entries of the cutlist; rank is necessary for the order of the cat command later on
+      # only frames, to prevent original photos
       for FILE in 02_scenes/$INPUT_SCENE/frame_*.jpg ;
       do
       NEWFILE=`echo $FILE | sed "s/frame/$INPUT_RANK\_$INPUT_SCENE\_frame/g"` ;
@@ -571,21 +571,21 @@ if [ $INPUT_SCENE = "all" ]
 
       echo +++++++++++++ "Render $SCENE" ++++++++++++
       ffmpeg -loop_input -f image2 -r $INPUT_FRAMERATE -i "02_scenes/$INPUT_SCENE/${INPUT_RANK}_${INPUT_SCENE}_frame_%04d.jpg" -b $BITRATE -r $FRAMERATE_END -vframes $INPUT_LENGTH "03_output/${INPUT_RANK}_${INPUT_SCENE}_output.avi"
-# {} are necessary to preserve the following underscore
-# no overwrite (-y) needed
-# the framerate of the output is necessary to keep the framerate differences of the scenes
+      # {} are necessary to preserve the following underscore
+      # no overwrite (-y) needed
+      # the framerate of the output is necessary to keep the framerate differences of the scenes
 
       echo +++++++++++++ "Write variables to cutlist.csv" ++++++++++++
       echo "$INPUT_RANK;$INPUT_SCENE;$INPUT_FRAMERATE;$INPUT_LENGTH;" >> cutlist.csv
       read -p "Done!"
-# as a last step after everything was successful to prevent errors in the cutlist
+      # as a last step after everything was successful to prevent errors in the cutlist
 
-# if scene already in the cutlist
+    # if scene already in the cutlist
     else
-################################################## BLOCK 03 #############################################################
+    ################################################## BLOCK 03 #############################################################
     echo +++++++++++++ "$INPUT_SCENE is already existing" ++++++++++++
     echo +++++++++++++ "Read defined parameters of $INPUT_SCENE" ++++++++++++
-# Define Functions RANK, FRAMERATE, LENGTH by reading cutlist.csv
+    # Define Functions RANK, FRAMERATE, LENGTH by reading cutlist.csv
     RANK ()
     {
     grep "$INPUT_SCENE" cutlist.csv | csvtool -t ';' col 1 -
@@ -604,13 +604,13 @@ if [ $INPUT_SCENE = "all" ]
     echo "length = `LENGTH`"
     echo +++++++++++++ " The rank of $INPUT_SCENE changed ... renaming " ++++++++++++
 
-# warning about too many arguments, because finding lots of files?? but it works
+    # warning about too many arguments, because finding lots of files?? but it works
     blod ()
     {
     find ./02_scenes/$INPUT_SCENE -name `RANK`_${INPUT_SCENE}*
     }
     if [ -z `blod` ]
-# if the rank is not matching the one of the cutlist, it needs to be changed
+    # if the rank is not matching the one of the cutlist, it needs to be changed
      then
      echo +++++++++++++ "Rename $INPUT_SCENE by updating its name and rank" ++++++++++++
      for FILE in 02_scenes/$INPUT_SCENE/*frame*.jpg ;
@@ -624,8 +624,8 @@ if [ $INPUT_SCENE = "all" ]
     fi
     echo +++++++++++++ "Render $SCENE" ++++++++++++
     ffmpeg -loop_input -f image2 -r `FRAMERATE` -i "02_scenes/$INPUT_SCENE/`RANK`_${INPUT_SCENE}_frame_%04d.jpg" -b $BITRATE -r $FRAMERATE_END -vframes `LENGTH` "03_output/`RANK`_${INPUT_SCENE}_output.avi"
-# {} are necessary to preserve the following underscore
-# the framerate of the output is necessary to keep the framerate differences of the scenes
+    # {} are necessary to preserve the following underscore
+    # the framerate of the output is necessary to keep the framerate differences of the scenes
     fi
 fi
 
