@@ -1,4 +1,5 @@
-baseurl      = "https://sektionschef.github.io/art/"
+# baseurl      = "https://sektionschef.github.io/art/"
+baseurl      = "localhost"
 title        = "digitalitility"
 languageCode = "en-us"
 theme        = "hello-friend-ng-2"

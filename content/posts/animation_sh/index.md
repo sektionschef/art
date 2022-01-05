@@ -24,7 +24,7 @@ The following animations should show a certain difficulty of perceiving depth in
 
 <img src="https://images.albertsons-media.com/is/image/ABS/184450056?$ecom-pdp-desktop$&defaultImage=Not_Available&defaultImage=Not_Available" alt="Screenshot of the Onion homepage">
 
-
+kind
 
 ![](/static/animation_sh/equip-150x150.jpg)
 
